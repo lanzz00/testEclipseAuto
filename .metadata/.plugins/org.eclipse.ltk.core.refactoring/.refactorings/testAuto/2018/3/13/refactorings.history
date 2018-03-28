@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.stta.utility.shenfenz.java&apos; to &apos;IdCardGenerator.java&apos;&#x0D;&#x0A;- Original project: &apos;testAuto&apos;&#x0D;&#x0A;- Original element: &apos;com.stta.utility.shenfenz.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.stta.utility.IdCardGenerator.java&apos;" description="Rename compilation unit &apos;shenfenz.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src\/main\/java&lt;com.stta.utility{shenfenz.java" name="IdCardGenerator.java" references="false" stamp="1522138558900" version="1.0"/>
+</session>

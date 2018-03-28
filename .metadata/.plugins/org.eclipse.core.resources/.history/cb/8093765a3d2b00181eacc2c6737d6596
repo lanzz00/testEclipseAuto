@@ -1,0 +1,46 @@
+package com.test.auto.firstTest;
+
+import org.testng.annotations.Test;
+
+import com.test.auto.element.testelementfuzhi;
+import com.test.auto.webdriver.BrowserEngine;
+
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+
+public class helloWorld {
+		WebDriver driver;
+		
+		@BeforeClass
+		public void setUp() throws IOException{  
+		     
+		  BrowserEngine browserEngine = new BrowserEngine();  
+		  browserEngine.initConfigData();  
+		  driver=browserEngine.getBrowser();  
+		  
+		  }  
+		@Test
+		public void test_case1() {
+//			WebElement element_username = driver.findElement(By.id("username"));
+//			element_username.clear();
+//			element_username.sendKeys("ygzj001");
+//			driver.findElement(By.id("password")).clear();
+//			driver.findElement(By.id("password")).sendKeys("123456");
+			testelementfuzhi testInput = new testelementfuzhi(driver); 
+			testInput.idFuzhi("username", "ygzj001");
+			testInput.idFuzhi("password", "123456");
+			
+			testInput.idFuzhiClick("driver.findElement(By.className(\"login_btn\")).click();");
+	  }	
+	
+	
+	  @AfterClass
+	  public void tearDown(){  
+	      
+	      driver.quit();  
+	  }  
+}

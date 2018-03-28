@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="57837" started-at="2018-03-21T02:06:06Z" finished-at="2018-03-21T02:07:04Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="57837" started-at="2018-03-21T02:06:06Z" finished-at="2018-03-21T02:07:04Z">
+      <class name="com.test.auto.firstTest.JichuxinxiTest">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.test.auto.firstTest.JichuxinxiTest@491cc5c9]" name="beforeMethod" is-config="true" duration-ms="11196" started-at="2018-03-21T02:06:06Z" finished-at="2018-03-21T02:06:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="jichuxinxluruTest()[pri:0, instance:com.test.auto.firstTest.JichuxinxiTest@491cc5c9]" name="jichuxinxluruTest" duration-ms="10204" started-at="2018-03-21T02:06:17Z" finished-at="2018-03-21T02:06:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- jichuxinxluruTest -->
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.test.auto.firstTest.JichuxinxiTest@491cc5c9]" name="afterMethod" is-config="true" duration-ms="1" started-at="2018-03-21T02:06:28Z" finished-at="2018-03-21T02:06:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+      </class> <!-- com.test.auto.firstTest.JichuxinxiTest -->
+      <class name="com.test.auto.firstTest.zhiyuanhuodong">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.test.auto.firstTest.zhiyuanhuodong@74ad1f1f]" name="setUp" is-config="true" duration-ms="6200" started-at="2018-03-21T02:06:28Z" finished-at="2018-03-21T02:06:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="test_case1()[pri:0, instance:com.test.auto.firstTest.zhiyuanhuodong@74ad1f1f]" name="test_case1" duration-ms="28846" started-at="2018-03-21T02:06:34Z" finished-at="2018-03-21T02:07:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test_case1 -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.test.auto.firstTest.zhiyuanhuodong@74ad1f1f]" name="tearDown" is-config="true" duration-ms="1369" started-at="2018-03-21T02:07:03Z" finished-at="2018-03-21T02:07:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.test.auto.firstTest.zhiyuanhuodong -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

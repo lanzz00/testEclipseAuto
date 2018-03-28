@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Tue Mar 27 14:40:07 CST 2018
+org.eclipse.jst.jee.server\:Qg_webapps=E\:\\apache-tomcat-7.0.70\\webapps\\Qg_webapps
+org.eclipse.jst.jee.server\:WebTest=E\:\\apache-tomcat-7.0.70\\webapps\\WebTest

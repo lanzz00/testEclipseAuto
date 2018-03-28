@@ -1,0 +1,147 @@
+package com.stta.utility;
+
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
+import javax.swing.filechooser.FileSystemView;
+
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.poifs.filesystem.POIFSFileSystem;
+import org.openqa.selenium.remote.JsonException;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+
+
+public class testPOIDome {
+	public static void creatExcel() throws IOException {
+		//获取桌面路径
+		FileSystemView fsv = FileSystemView.getFileSystemView();
+		String desktop = fsv.getHomeDirectory().getPath();
+		String filePath = desktop + "/temp.xls";
+		File file = new File(filePath);
+		OutputStream ops = new FileOutputStream(file);
+		HSSFWorkbook workbook = new HSSFWorkbook();
+		HSSFSheet sheet = workbook.createSheet("testSheet1");
+		HSSFRow row = sheet.createRow(0);
+		row.createCell(0).setCellValue("id");
+		row.createCell(1).setCellValue("name");
+		row.createCell(2).setCellValue("cardNum");
+		row.createCell(3).setCellValue("sex");
+		row.setHeightInPoints(30);
+		
+		HSSFRow row1 = sheet.createRow(1);
+		row1.createCell(0).setCellValue("1");
+		row1.createCell(1).setCellValue("lili");
+		row1.createCell(2).setCellValue("330124199002250658");
+		row1.createCell(3).setCellValue("男");
+		
+		workbook.setActiveSheet(0);
+		workbook.write(ops);
+		ops.close();
+
+	}
+	public static void readExcel() throws IOException {
+		FileSystemView fsv = FileSystemView.getFileSystemView();
+	    String desktop = fsv.getHomeDirectory().getPath();
+	    String filePath = desktop + "/temp.xls";
+	    FileInputStream fis = new FileInputStream(filePath);
+	    BufferedInputStream bufferedInputStream = new BufferedInputStream(fis);
+	    POIFSFileSystem fileSystem = new POIFSFileSystem(bufferedInputStream);
+	    HSSFWorkbook workbook = new HSSFWorkbook(fileSystem);
+	    HSSFSheet sheet = workbook.getSheet("testSheet1");
+	    int lastRowIndex = sheet.getLastRowNum();
+	    System.out.println(lastRowIndex);
+	    //构建json
+	    JsonArray array=new JsonArray();
+	    String[] arraytop =  new String[8];
+		 for(int i = 0;i <= lastRowIndex;i++) {
+			
+			 JsonObject jsonStr=new JsonObject();
+			 HSSFRow row = sheet.getRow(i);
+			 
+			 short lastCellNum = row.getLastCellNum();
+			 if(i == 0) {
+				 for(int n=0;n<lastCellNum;n++) {
+					 String cellValue =row.getCell(n).getStringCellValue();
+					 arraytop[n] = cellValue;
+					
+				 } 
+			 }else if(i > 0) {
+				 //arraytop.length
+				 for(int j=0,m=0;j<lastCellNum;j++,m++) {
+					 
+					 String cellValue =row.getCell(j).getStringCellValue();
+					 jsonStr.addProperty(arraytop[m], cellValue);
+				 }
+				 array.add(jsonStr);
+			 }else {
+				break;
+			}
+			 
+			 System.out.println(array);
+				
+			 }
+
+		 }
+		
+		
+//	    for(int i = 0;i <= lastRowIndex;i++) {
+//	    	HSSFRow row = sheet.getRow(i);
+//	    	if (row == null) {break;}
+//	    	 short lastCellNum = row.getLastCellNum();
+//	    	 for(int j=0;j<lastCellNum;j++) {
+//	    		 String cellValue =row.getCell(j).getStringCellValue();
+//	    		 System.out.println(cellValue);
+//	    	 }
+//	    }
+		
+
+
+	private static void CreateJson() throws JsonException
+	{
+		//要创建JSON格式的数据，首先要创建一个整体的JSON的对象，作为一个容器
+		JsonObject object=new JsonObject();
+		//如果要为当前的JSON对象添加另一个JSON对象，使用add()方法
+		//如果要为当前的JSON对象添加属性值（键值对），使用addProperty()方法
+		object.addProperty("category", "it");
+		//接下来构建JSON数组，名称是 languages
+		JsonArray array=new JsonArray();
+		JsonObject lan1=new JsonObject();
+		lan1.addProperty("id", 1);
+		lan1.addProperty("name", "Java");
+		lan1.addProperty("ide", "Eclipse");
+		//将 lan1 添加到 array
+		array.add(lan1);
+		JsonObject lan2=new JsonObject();
+		lan2.addProperty("id", 2);
+		lan2.addProperty("name", "Swift");
+		lan2.addProperty("ide", "Xcode");
+		//将 lan2 添加到 array
+		array.add(lan2);
+		JsonObject lan3=new JsonObject();
+		lan3.addProperty("id", 3);
+		lan3.addProperty("name", "C#");
+		lan3.addProperty("ide", "Visual Studio");
+		//将 lan3 添加到 array
+		array.add(lan3);
+		//将 array 添加到 object，指定 array 的名称： languages（键）
+		object.add("languages", array);
+		//添加最后一个属性：pop
+		object.addProperty("pop", true);
+		//创建完毕，转换成字符串
+		System.out.println(object.toString());
+
+	}
+	public static void main(String[] args) throws IOException {
+		readExcel();
+		//CreateJson();
+	}
+}

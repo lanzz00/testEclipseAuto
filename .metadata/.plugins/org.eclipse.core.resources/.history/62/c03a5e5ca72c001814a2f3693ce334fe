@@ -1,0 +1,7 @@
+package com.test.auto.element;
+
+public class LoginPage {
+/**
+ * 登录
+ */
+}

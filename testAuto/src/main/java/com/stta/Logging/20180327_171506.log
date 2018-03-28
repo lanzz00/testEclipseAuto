@@ -1,0 +1,7 @@
+2018-03-27 17:15:06.395 INFO: Start to select browser name from properties file
+2018-03-27 17:15:06.396 INFO: Your had select test browser type is: Firefox
+2018-03-27 17:15:06.396 INFO: The test server URL is: http://192.168.11.122:8080/grid/login/
+2018-03-27 17:15:11.339 INFO: Launching Firefox ...
+2018-03-27 17:15:12.359 INFO: Open URL: http://192.168.11.122:8080/grid/login/
+2018-03-27 17:15:12.393 INFO: Maximize browser...
+2018-03-27 17:15:12.401 INFO: Wait for 5 seconds.
